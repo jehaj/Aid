@@ -2,25 +2,53 @@
 Repository for aiding in setting up my PC.
 
 ## Backup
-Properly the most important thing. I am using Linux and will use `Borg Backup`. I want to save some parts of my `home` directory - specifically `Documents`, `Pictures`, `Videos`, `.eduroam` and `Downloads`. If the need arises then it is easy to add more directories.
+Properly the most important thing. I am using Linux and will use `Borg Backup`. It is for Linux, but can be used in Windows with WSL. I will not do that though. I want to backup my `Sync/` folder. I use syncthing to synchronize files and folders across my devices. This folder contains the important things, which should also be backed up on an external harddrive. 
+
+The first thing to do is create the repository. This should only be run once. Change the directory to the backup folder and run
+
 ```
-$ borg init -e none <empty directory for backup>
+borg init -e none ./
 ```
 
-I also have a folder for different books. The syntax is very similar to before, but for convenience it is inserted below
+To create a backup of `~/Sync` you first  run
+
 ```
-$ borg create <repository>::<name> <folders...>
+borg create ./::sync-{now:%Y-%m-%d} ~/Sync
 ```
 
-Extract a previous backup
+Which will result in a archive named sync-YYYY-MM-DD. The name has to be unique and with this a backup can be taken every day. The plan is for weekly backups, so this is just fine. If you do not specify the format (e.g. ":%Y-%m-%d") then it will look like YYYY-MM-DDTHH:mm:ss.
+
+If you want to view the archives in the backup folder you can run
+
 ```
-$ borg extract <repository>::<name> <target>
+borg list .
 ```
+
+If you want to view the contents of the archive then run
+
+```
+borg list .::<name of archive>
+```
+
+To restore a backup you can use
+
+```
+borg extract /path/to/repo::<name of archive>
+```
+
+Be aware that the archive will be extracting the files relative to the current directory.
+
 
 ## Setup for Linux (Fedora)
 
 ### Programming
 This section is about setting a functioning programming environment. I often use `vscode`, `IntelliJ Idea` and `PyCharm` and will show how to set it up.
+
+Manual installed applications will be placed in ~/Applications/
+
+# VSCode
+
+Download
 
 ##  Setup for Windows
 The webbrowser is important. I use firefox, which can be downloaded from [mozilla.org](https://www.mozilla.org/firefox/download/thanks/).
