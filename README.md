@@ -10,10 +10,12 @@ The first thing to do is create the repository. This should only be run once. Ch
 borg init -e none ./
 ```
 
-To create a backup of `~/Sync` you first  run
+To create a backup of `~/Sync` you first run
 
 ```
 borg create ./::sync-{now:%Y-%m-%d} ~/Sync
+# if you want to exclude a folder (e.g. the books folder) use
+borg create -e ~/Sync/Books ./::sync-{now:%Y-%m-%d} ~/Sync
 ```
 
 Which will result in a archive named sync-YYYY-MM-DD. The name has to be unique and with this a backup can be taken every day. The plan is for weekly backups, so this is just fine. If you do not specify the format (e.g. ":%Y-%m-%d") then it will look like YYYY-MM-DDTHH:mm:ss.
