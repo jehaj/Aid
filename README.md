@@ -82,6 +82,10 @@ Then `~/Programmer/VSCode-linux-x64/` will contain VSCode.
 The webbrowser is important. I use firefox, which can be downloaded from 
 [mozilla.org](https://www.mozilla.org/firefox/download/thanks/).
 
+I use Development IDEs from Jetbrains. Use [Toolbox App](https://www.jetbrains.com/toolbox-app/) to manage those.
+
+[Visual Studio Code](https://code.visualstudio.com/) is also quite good.
+
 ### Applications from scoop
 ```
 scoop install git
@@ -89,5 +93,5 @@ scoop bucket add extras
 ```
 Setup scoop by following the commands at [scoop.sh](https://scoop.sh/) and then install the necessary applications with (you can add or delete whatever you need)
 ```
-scoop install 7zip anki audacity blender curl ffmpeg git go idea kdenlive libreoffice notepadplusplus powertoys python scoop-search speedcrunch sweethome3d syncthing temurin-lts-jdk vlc vscode windirstat
+scoop install 7zip anki git libreoffice python speedcrunch syncthing temurin-lts-jdk vlc
 ```
