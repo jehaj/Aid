@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  send:
+    image: '${DOCKER_SEND_IMAGE}'
+    restart: always
+    ports:
+      - '1234:1234'
+    volumes:
+      - ./uploads:/uploads
+    environment:
+      - VIRTUAL_HOST=${HOST}
+      - VIRTUAL_PORT=1234
+      - DHPARAM_GENERATION=false
+      - NODE_ENV=production
+      - BASE_URL=${SEND_BASE_URL}
+      - PORT=1234
+      - REDIS_HOST=redis
+
+      # For local uploads storage
+      - FILE_DIR=/uploads
+  
+  redis:
+    image: 'redis:alpine'
+    restart: always
+    volumes:
+      - send-redis:/data
+
+volumes:
+  send-redis:
