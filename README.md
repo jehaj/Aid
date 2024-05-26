@@ -1,97 +1,63 @@
 # Aid
-Repository for aiding in setting up my PC.
+Guide til opsætning af min PC (til mig).
 
-## Backup
-Properly the most important thing. I am using Linux and will use `Borg Backup`. It is for Linux, but can be used in 
-Windows with WSL. I will not do that though. I want to backup my `Sync/` folder. I use syncthing to synchronize files 
-and folders across my devices. This folder contains the important things, which should also be backed up on an 
-external harddrive. 
+## Setup
 
-The first thing to do is create the repository. This should only be run once. Change the directory to the backup 
-folder and run
+### Windows
+Min foretrækne browser er i øjeblikket `Firefox`. Dens installer kan hentes
+med dette direkte link 
+[mozilla.org](https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=da). 
+Efter man har logget ind hentes udvidelserne automatisk.
 
-```
-borg init -e none ./
-```
-
-To create a backup of `~/Sync` you first run
+Jeg har derudover brug for andre apps og værktøjer. Det er dejlig nemt at gøre 
+med `scoop` [scoop.sh](https://scoop.sh/). Når det er sat op installeres
+de nødvendige apps med
 
 ```
-borg create ./::sync-{now:%Y-%m-%d} ~/Sync
-# if you want to exclude a folder (e.g. the books folder) use
-borg create -e ~/Sync/Books ./::sync-{now:%Y-%m-%d} ~/Sync
+scoop install aria2
+scoop install anki audacity bfg bruno ffmpeg git-filter-repo go hyperfine libreoffice mingw moonlight mumble ncspot nodejs pnpm python qalculate restic rufus rustup speedcrunch syncthing tealdeer temurin-lts-jdk tokei typst vim vimtutor wireguard-np wiztree zoom
 ```
 
-Which will result in a archive named sync-YYYY-MM-DD. The name has to be unique and with this a backup can be taken 
-every day. The plan is for weekly backups, so this is just fine. If you do not specify the format (e.g. ":%Y-%m-%d") 
-then it will look like YYYY-MM-DDTHH:mm:ss.
+Derudover skal jeg huske
+- Generere nye ssh-nøgler
+- Indstille GitHub og GitLab til at bruge disse
+- Indstille `ssh-agent`, så jeg slipper for at huske koderne
+Jeg vil ikke bruge tid på at genfortælle hvordan man gør, men i stedet henvise til 
+[docs.github.com](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-If you want to view the archives in the backup folder you can run
+Jeg er meget glad for `JetBrains` produkter, som jeg har mulighed for at bruge
+gennem studiet. En nem måde at håndtere dem på er gennem `Toolbox App` 
+[jetbrains.com](https://www.jetbrains.com/toolbox-app/).
 
+WSL
+
+
+
+### Linux (Fedora)
+
+
+## Vedligeholdelse
+
+I og med `scoop` anvendes på Windows kan man også dejlig nemt opdatere ens
+programmer med
 ```
-borg list .
+scoop update *
 ```
-
-If you want to view the contents of the archive then run
-
+og fjerne tidligere installationsprogrammer med
 ```
-borg list .::<name of archive>
-```
-
-To restore a backup you can use
-
-```
-borg extract /path/to/repo::<name of archive>
-```
-
-Be aware that the archive will be extracting the files relative to the current directory.
-
-
-## Setup for Linux (Fedora)
-
-Install RPMFusion and media codecs.
-
-I am using following DNF packages (important)
-```
-wl-clipboard borgbackup speedcrunch tldr
+scoop cleanup *
 ```
 
-Extras (mostly programming languages)
+### Sikkerhedskopi
+Jeg har heldigvis ikke haft brug for backups endnu, men hellere være forberedt,
+end at blive taget med bukserne nede. Jeg bruger både Windows og Linux. 
+Det er i øjeblikket primært Windows, men det er alligevel nødvendigt med et
+program, som understøtter begge. Det gør `restic` 
+[restic.net](https://restic.net/).
+
+#### Brug
+Hvis man gerne vil tage en backup af `Sync` mappen i repo `.` bruges
 ```
-java-17-openjdk-javadoc java-17-openjdk-devel rust cargo latexmk
+restic --repo . backup $HOME\Sync\
 ```
-
-### Programming
-This section is about setting a functioning programming environment. I often use `vscode`, `IntelliJ Idea` and 
-`PyCharm` and will show how to set it up.
-
-Manual installed applications will be placed in ~/Applications/
-
-#### VSCode
-Having downloaded `.tar.gz` file from VSCode (@ https://code.visualstudio.com/Download) do:
-
-```
-mkdir ~/Programmer # only first time
-cd ~/Programmer # tar extracts to current directory
-tar xf ~/Hentet/code-stable-x64-xxxxxxxxx.tar.gz
-```
-
-Then `~/Programmer/VSCode-linux-x64/` will contain VSCode.
-
-##  Setup for Windows
-The webbrowser is important. I use firefox, which can be downloaded from 
-[mozilla.org](https://www.mozilla.org/firefox/download/thanks/).
-
-I use Development IDEs from Jetbrains. Use [Toolbox App](https://www.jetbrains.com/toolbox-app/) to manage those.
-
-[Visual Studio Code](https://code.visualstudio.com/) is also quite good.
-
-### Applications from scoop
-```
-scoop install git
-scoop bucket add extras
-```
-Setup scoop by following the commands at [scoop.sh](https://scoop.sh/) and then install the necessary applications with (you can add or delete whatever you need)
-```
-scoop install 7zip anki git libreoffice python speedcrunch syncthing temurin-lts-jdk vlc
-```
+Det er denne mappe, som indeholder tingene, der skal sikkerhedskopieres.
