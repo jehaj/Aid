@@ -15,7 +15,7 @@ de nødvendige apps med
 
 ```
 scoop install aria2
-scoop install anki audacity bfg bruno ffmpeg git-filter-repo go hyperfine libreoffice mingw moonlight mumble ncspot nodejs pnpm python qalculate restic rufus rustup speedcrunch syncthing tealdeer temurin-lts-jdk tokei typst vim vimtutor wireguard-np wiztree zoom
+scoop install anki audacity bruno ffmpeg go hyperfine libreoffice mingw moonlight mumble pnpm python qalculate restic rufus speedcrunch syncthing tealdeer temurin-lts-jdk tokei typst vim vimtutor wireguard-np wiztree zoom 7zip dark dotnet-sdk gimp git inkscape mpc-hc-fork neovim nodejs-lts obs-studio qpdf syncthingtray vscode yt-dlp 
 ```
 
 Derudover skal jeg huske
