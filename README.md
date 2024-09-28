@@ -5,7 +5,7 @@ Guide til opsætning af min PC (til mig).
 
 ### Windows
 #### Windows 11 N
-Hvis man henter N udgaven af Windows, så skal man hente Media Feature Pack. Dertil kan man bruge CLI (eller GUI). Brug
+Hvis man henter N udgaven af Windows, så skal man bagefter hente Media Feature Pack for at det fungerer optimalt. Dertil kan man bruge CLI (eller GUI). Brug
 ```PowerShell
 DISM /Online /Get-Capabilities
 ```
