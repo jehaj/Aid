@@ -6,7 +6,11 @@ Guide til opsætning af min PC (til mig).
 ### Windows
 Min foretrækne browser er i øjeblikket `Firefox`. Dens installer kan hentes
 med dette direkte link 
-[mozilla.org](https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=da). 
+[mozilla.org](https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=da). Man kan hente den i PowerShell med
+```PowerShell
+IWR -OutFile FirefoxSetup.exe "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=da"
+```
+
 Efter man har logget ind hentes udvidelserne automatisk.
 
 Jeg har derudover brug for andre apps og værktøjer. Det er dejlig nemt at gøre 
@@ -14,8 +18,9 @@ med `scoop` [scoop.sh](https://scoop.sh/). Når det er sat op installeres
 de nødvendige apps med
 
 ```
+scoop bucket add extras
 scoop install aria2
-scoop install anki audacity bruno ffmpeg go hyperfine libreoffice mingw moonlight mumble pnpm python qalculate restic rufus speedcrunch syncthing tealdeer temurin-lts-jdk tokei typst vim vimtutor wireguard-np wiztree zoom 7zip dark dotnet-sdk gimp git inkscape mpc-hc-fork neovim nodejs-lts obs-studio qpdf syncthingtray vscode yt-dlp 
+scoop install 7zip anaconda3 anki aria2 audacity dark ddu discord dotnet-sdk ffmpeg gimp git go godot-mono gradle-bin hyperfine inkscape innounp JetBrains-Mono libreoffice mattermost mingw mpc-hc-fork mumble nodejs-lts obs-studio okular pnpm powertoys python qalculate qpdf rcedit restic rufus rustup-gnu speedcrunch sweethome3d syncthing syncthingtray tealdeer temurin-lts-jdk tokei typst vcredist vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vim vimtutor vlc vscode wireguard-np yt-dlp
 ```
 
 Derudover skal jeg huske
