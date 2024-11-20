@@ -77,3 +77,11 @@ Hvis man gerne vil tage en backup af `Sync` mappen i repo `.` bruges
 restic --repo . backup $HOME\Sync\
 ```
 Det er denne mappe, som indeholder tingene, der skal sikkerhedskopieres.
+
+# Geninstallering
+Du skal have gemt
+- Sync mappen (indeholder vigtige billeder osv.),
+  - Se Restic tidligere. 
+- SSH nøgler (lidt iffy, nogle synes du skal lade være. Det gør det simplere at sætte op),
+- mails (thunderbird kan eksportere profiler),
+- 
