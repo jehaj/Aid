@@ -72,9 +72,9 @@ program, som understøtter begge. Det gør `restic`
 [restic.net](https://restic.net/).
 
 #### Brug
-Hvis man gerne vil tage en backup af `Sync` mappen i repo `.` bruges
+Hvis man gerne vil tage en backup af `Sync` mappen i repo `<repo>` og du står i mappen med `Sync` bruges
 ```
-restic --repo . backup $HOME\Sync\
+restic --repo <repo> backup Sync\
 ```
 Det er denne mappe, som indeholder tingene, der skal sikkerhedskopieres.
 
