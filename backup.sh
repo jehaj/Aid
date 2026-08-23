@@ -31,6 +31,11 @@ REPOS=(
 # Define directories/files to back up
 PATHS=(
     "$HOME/Sync"
+    "$HOME/Hentet"
+    "$HOME/Skrivebord"
+    "$HOME/Billeder"
+    "$HOME/Videoklip"
+    "$HOME/Dokumenter"
     "$HOME/.mozilla/firefox"
     "$HOME/.var/app/com.brave.Browser"
     "$HOME/.var/app/com.chatterino.chatterino"
