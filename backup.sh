@@ -32,6 +32,7 @@ REPOS=(
 PATHS=(
     "$HOME/Sync"
     "$HOME/.mozilla/firefox"
+    "$HOME/.var/app/com.brave.Browser"
     "$HOME/.var/app/com.chatterino.chatterino"
     "$HOME/.var/app/org.signal.Signal"
     "$HOME/.var/app/com.usebottles.bottles"
