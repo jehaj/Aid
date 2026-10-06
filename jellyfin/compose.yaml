@@ -1,0 +1,19 @@
+services:
+  jellyfin:
+    image: docker.io/jellyfin/jellyfin
+    container_name: jellyfin
+    ports:
+      - 8096:8096/tcp
+      - 7359:7359/udp
+    volumes:
+      - config:/config
+      - cache:/cache
+      - type: bind
+        source: /home/nikolaj/Videoklip/Jellyfin
+        target: /media
+        bind:
+          selinux: z
+    restart: 'unless-stopped'
+volumes:
+  config:
+  cache:
